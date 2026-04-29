@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+<ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="9.0.0" />
+    
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.0" />
+    
+    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0" />
+    
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.0" />
+</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Health.Domain\Health.Domain.csproj" />
+    <ProjectReference Include="..\Health.Application\Health.Application.csproj" />
+    <ProjectReference Include="..\Health.Domain.Shared\Health.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

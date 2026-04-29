@@ -1,0 +1,16 @@
+# .NET (C#)
+bin/
+obj/
+*.user
+*.suo
+*.db
+
+# Node.js (Front-end)
+node_modules/
+dist/
+.env
+
+# IDEs
+.vs/
+.idea/
+.vscode/

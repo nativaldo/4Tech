@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  health-db:
+    image: postgres:16
+    container_name: health-postgres
+    environment:
+      POSTGRES_USER: ${HLTH_DB_USER}
+      POSTGRES_PASSWORD: ${HLTH_DB_PASS}
+      POSTGRES_DB: postgres
+    ports:
+      - "${HLTH_DB_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db:/docker-entrypoint-initdb.d
+    networks:
+      - health-network
+
+volumes:
+  postgres_data:
+
+networks:
+  health-network:
+    driver: bridge
