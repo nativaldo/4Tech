@@ -1,1 +1,41 @@
+# Health Management System API
 
+> Sistema de gestão de saúde robusto, desenvolvido com **.NET 9**, **PostgreSQL** e **Angular**, seguindo rigorosamente os princípios de **Clean Architecture** e **12-Factor App**.
+
+[![.NET 9](https://img.shields.io/badge/.NET-9.0-512bd4.svg)](https://dotnet.microsoft.com/download)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1.svg)](https://www.postgresql.org/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED.svg)](https://www.docker.com/)
+
+---
+
+## Índice
+* [Sobre o Projeto](#-sobre-o-projeto)
+* [URLs de Acesso](#-urls-de-acesso)
+* [Guia Técnico de Execução](#-guia-técnico-de-execução)
+* [Padrões de Resposta](#-padrões-de-resposta)
+* [Primeiros Passos (Passo a Passo)](#-primeiros-passos-passo-a-passo)
+* [Decisões Arquiteturais](#-decisões-arquiteturais)
+
+---
+
+## Sobre o Projeto
+O **Health Management System** é uma API RESTful projetada para realizar operações CRUD de planos de saúde e beneficiários. A estrutura segue a **Screaming Architecture**, onde a organização das pastas revela a intenção do negócio.
+
+##  URLs de Acesso
+A infraestrutura é orquestrada via **Rancher Desktop (WSL2)**.
+
+
+##  Guia Técnico de Execução
+
+### 1. Preparação do Ambiente
+Certifique-se de que o **Rancher Desktop** está rodando com a integração WSL2 ativa e as imagens do Docker liberadas.
+
+```bash
+# Subir a infraestrutura (PostgreSQL e Keycloak)
+docker-compose up -d
+
+# Restaurar pacotes do .NET 9
+dotnet restore
+
+# Atualizar a base de dados (PostgreSQL + hth_ snake_case)
+Navegue até o dritório Docker/Development e execute o arquivo update-db e  base será criada automaticamente
