@@ -15,7 +15,7 @@ public sealed class DeletePlanoUseCase(
         CancellationToken ct)
     {
         // 1. Buscar o plano (EF)
-        var plano = await planoRepo.GetByIdAsync(request.Id, ct);
+        var plano = await planoRepo.GetByIdAsync(request.id, ct);
 
         if (plano is null)
             return Result<DeletePlanoResponse>.Failure(ErrorType.NotFound, ErrorRegistry.Domain.Plano.NaoEncontrado);

@@ -4,6 +4,7 @@ using Health.API.DTOs.Plano;
 using Health.API.v1.DTOs.Plano;
 using Health.Application.UseCases.Beneficiarios.CreatePlano;
 using Health.Application.UseCases.Beneficiarios.GetPlano;
+using Health.Application.UseCases.Planos.DeletePlano;
 using Health.Application.UseCases.Planos.GetPlano;
 using Health.Application.UseCases.Planos.UpdatePlano;
 using Health.Domain.Shared.Abstractions.Common.Errors;
@@ -59,6 +60,19 @@ public class PlanoController : BaseController
             dto.CodigoRegistroAns
             );
 
+        var result = await Mediator.SendAsync(request, ct);
+        return ProcessResult(result);
+    }
+    /// <summary>
+    /// Deletar um plano
+    /// </summary>
+    [HttpDelete("deletar/{id:guid}")]
+    [ProducesResponseType(typeof(CreatePlanoResponse), 200)]
+    [ProducesResponseType(typeof(Error), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(Error), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Delete([FromRoute] Guid id, CancellationToken ct)
+    {
+        var request = new DeletePlanoRequest(id);
         var result = await Mediator.SendAsync(request, ct);
         return ProcessResult(result);
     }
